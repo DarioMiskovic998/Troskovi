@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS trosak;
+DROP TABLE IF EXISTS tip;
+
+CREATE TABLE tip (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    naziv TEXT NOT NULL
+);
+
+CREATE TABLE trosak (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  naziv TEXT NOT NULL,
+  tip INTEGER NOT NULL,
+  datum_troska DATE NOT NULL,
+  iznos INTEGER NOT NULL,
+
+  FOREIGN KEY (tip) REFERENCES tip (id)
+);
+
+INSERT INTO tip (naziv) VALUES ("Svakodnevni"), ("Mjesečni"), ("Godišnji");

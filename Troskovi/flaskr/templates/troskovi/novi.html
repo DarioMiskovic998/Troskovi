@@ -1,0 +1,24 @@
+{% extends 'glavni.html' %}
+
+
+{% block content %}
+  <form method="post">
+   <label for="naziv">Naziv troška:
+          <input type="text" name="naziv" id="naziv" required />
+      </label>
+      <label for="iznos">Iznos troška:
+          <input type="number" name="iznos" id="iznos" required />
+      </label>
+    <label for="tip">Tip troška:
+        <select name="tip" id="tip" required>
+        {% for tip in tipovi %}
+            <option value="{{ tip.id }}">{{ tip.naziv }}</option>
+        {% endfor %}
+    </select></label>
+      <label for="datum_troska">Datum troška:
+          <input type="date" name="datum_troska" id="datum_troska" required />
+      </label>
+
+    <input type="submit" value="Unesi">
+  </form>
+{% endblock %}
